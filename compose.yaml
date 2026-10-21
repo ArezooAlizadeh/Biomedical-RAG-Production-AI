@@ -1,0 +1,18 @@
+services:
+  api:
+    build: .
+    image: medical-assistant:v6
+    ports:
+      - "127.0.0.1:8001:8000"
+    env_file:
+      - server/.env
+    environment:
+      UPLOAD_DIR: /app/data/uploaded_docs
+      BM25_DATA_PATH: /app/data/bm25_chunks.json
+      PINECONE_NAMESPACE: development
+    volumes:
+      - rag_data:/app/data
+
+volumes:
+  rag_data:
+    name: medicalassistant_development_data

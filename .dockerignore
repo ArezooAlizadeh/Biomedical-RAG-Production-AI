@@ -1,0 +1,19 @@
+# Allow only application Python source, dependency declarations and offline tests.
+**
+!Dockerfile
+!.dockerignore
+!requirements-docker.txt
+!test_v5.py
+!test_v5_graph.py
+!server/
+!server/**/
+!server/*.py
+!server/**/*.py
+
+# Exclude environments even if they contain Python source.
+**/.venv
+**/venv
+**/__pycache__
+**/.git
+**/.env
+**/.env.*
